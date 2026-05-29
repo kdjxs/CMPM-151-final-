@@ -20031,6 +20031,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129649097}
     - target: {fileID: 8619044349504227178, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
+      propertyPath: impulse
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619044349504227178, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
       propertyPath: timelbl
       value: 
       objectReference: {fileID: 138499167}

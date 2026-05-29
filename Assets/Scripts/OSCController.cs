@@ -5,8 +5,8 @@ using UnityEngine;
 public class OSCController : MonoBehaviour
 {
     [Header("extOSC Components")]
-    public OSCReceiver receiver;  // Port: 8001 — receives FROM Pd
-    public OSCTransmitter sender;      // Host: 127.0.0.1, Port: 8000 — sends TO Pd
+    public OSCReceiver receiver;  // Port: 8001 ï¿½ receives FROM Pd
+    public OSCTransmitter sender;      // Host: 127.0.0.1, Port: 8000 ï¿½ sends TO Pd
 
     public PlayerController playerController;
     public coinManager coinMgr;
@@ -44,6 +44,13 @@ public class OSCController : MonoBehaviour
     {
         var msg = new OSCMessage("/unity/move");
         msg.AddValue(OSCValue.Float(intensity)); 
+        sender.Send(msg);
+    }
+
+    public void SendMaterial(int materialId)
+    {
+        var msg = new OSCMessage("/unity/material");
+        msg.AddValue(OSCValue.Int(materialId));
         sender.Send(msg);
     }
 

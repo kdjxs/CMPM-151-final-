@@ -1,4 +1,4 @@
-#N canvas 328 67 1162 789 12;
+#N canvas 23 135 2481 1810 12;
 #X obj 626 517 select 1 0;
 #X obj 637 581 vline~;
 #X obj 626 479 r move;
@@ -47,7 +47,7 @@
 #X obj 787 460 *~;
 #X obj 783 642 dac~;
 #X obj 787 516 *~;
-#X obj 825 497 hsl 162 19 0 1 0 0 empty empty Volume -2 -10 0 12 #00ff04 #000000 #000000 0 1;
+#X obj 849 486 hsl 162 19 0 1 0 0 empty empty Volume -2 -10 0 12 #00ff04 #000000 #000000 0 1;
 #X obj 789 571 rev3~ 100 90 3000 20;
 #X obj 789 605 +~;
 #X obj 787 540 *~ 1;
@@ -88,6 +88,9 @@
 #X floatatom 548 385 5 0 0 0 - - - 0;
 #X obj 548 359 route move;
 #X obj 547 411 s move;
+#X floatatom 640 385 5 0 0 0 - - - 0;
+#X obj 640 359 route material;
+#X obj 639 411 s material;
 #X connect 0 0 6 0;
 #X connect 0 0 8 0;
 #X connect 1 0 0 0;
@@ -100,6 +103,7 @@
 #X connect 12 0 21 0;
 #X connect 12 0 24 0;
 #X connect 12 0 27 0;
+#X connect 12 0 30 0;
 #X connect 13 0 10 0;
 #X connect 15 0 0 0;
 #X connect 16 0 15 0;
@@ -111,6 +115,8 @@
 #X connect 24 0 23 0;
 #X connect 26 0 28 0;
 #X connect 27 0 26 0;
+#X connect 30 0 29 0;
+#X connect 29 0 31 0;
 #X restore 13 121 pd oscReceive;
 #X obj 13 15 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 13 40 \; pd dsp \$1;
@@ -136,7 +142,7 @@
 #X restore 13 97 pd oscSend;
 #X obj 10 292 s oscOut;
 #X obj 709 278 *~ 0.005;
-#X obj 585 164 hradio 19 1 0 4 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0;
+#X obj 478 132 hradio 19 1 0 4 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0;
 #X obj 586 193 select 0 1 2 3;
 #X obj 680 437 vline~;
 #X obj 649 370 bng 19 250 50 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000;
@@ -158,10 +164,11 @@
 #X obj 13 341 netreceive -u -b;
 #X obj 13 365 oscparse;
 #X obj 607 549 0.5 250;
-#X text 589 110 1 turns on stone patch \, 2 turns on sand \, 3 mutes, f 21;
+#X text 589 110 0 turns on stone patch \, 1 turns on sand \, 2 mutes, f 21;
 #X obj 650 405 1 250;
 #X connect 0 0 88 0;
 #X connect 0 1 5 0;
+#X connect 1 0 45 1;
 #X connect 2 0 0 0;
 #X connect 3 0 6 0;
 #X connect 5 0 1 0;
@@ -187,6 +194,7 @@
 #X connect 23 0 21 1;
 #X connect 24 0 23 0;
 #X connect 25 0 24 0;
+#X connect 27 0 68 0;
 #X connect 28 0 32 0;
 #X connect 29 0 30 0;
 #X connect 30 0 31 0;
@@ -217,11 +225,9 @@
 #X connect 62 0 65 0;
 #X connect 63 0 62 0;
 #X connect 66 0 75 0;
-#X connect 67 0 68 0;
 #X connect 68 0 71 0;
 #X connect 68 1 73 0;
 #X connect 68 2 82 0;
-#X connect 69 0 45 1;
 #X connect 70 0 90 0;
 #X connect 71 0 78 0;
 #X connect 71 0 79 0;
