@@ -19982,6 +19982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 5322015025924947877, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8121151093851398235, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 349.7
@@ -20032,7 +20036,7 @@ PrefabInstance:
       objectReference: {fileID: 1129649097}
     - target: {fileID: 8619044349504227178, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
       propertyPath: impulse
-      value: 10
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8619044349504227178, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
       propertyPath: timelbl
