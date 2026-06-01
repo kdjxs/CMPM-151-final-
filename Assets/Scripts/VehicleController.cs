@@ -14,6 +14,13 @@ public class VehicleController : MonoBehaviour
     public CheckpointController target;
     public TextMeshProUGUI timelbl;
     public TextMeshProUGUI laps;
+    private Rigidbody _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,13 +35,18 @@ public class VehicleController : MonoBehaviour
     {
         timelbl.text = string.Format("Current time: {0:F2} seconds", (Time.time - starttime));
 
-        GetComponent<Rigidbody>().AddRelativeForce(desired_acceleration * impulse, 0, 0);
         float dx = (Mouse.current.position.x.value - Screen.width / 2) / turnrate;
         if (Mathf.Abs(dx) > 0.01f)
         {
             transform.Rotate(0, dx, 0);
         }
     }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.AddRelativeForce(Vector3.right * (desired_acceleration * impulse), ForceMode.Force);
+    }
+
     void OnMove(InputValue action)
     {
         var movement = action.Get<Vector2>();

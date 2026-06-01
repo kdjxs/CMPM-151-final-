@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
     private int _lastSentMaterial = -1;
     private Collider _currentGroundCollider;
     private float _lastGroundContactTime = -1f;
+    private Rigidbody _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,13 +52,16 @@ public class PlayerController : MonoBehaviour
         // Display current time
         timelbl.text = string.Format("Current time: {0:F2}", (Time.time - starttime));
 
-        // Add force to player
-        GetComponent<Rigidbody>().AddRelativeForce(desired_acceleration * impulse, 0, 0);
         // Camera turn with A and D
         transform.Rotate(0, steering * 100f * Time.deltaTime, 0);
 
         CheckGroundMaterial();
 
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.AddRelativeForce(Vector3.right * (desired_acceleration * impulse), ForceMode.Force);
     }
 
     private void CheckGroundMaterial()
