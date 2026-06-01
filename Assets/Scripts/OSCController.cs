@@ -60,4 +60,10 @@ public class OSCController : MonoBehaviour
         msg.AddValue(OSCValue.Float(bpm));
         sender.Send(msg);
     }
+    public void SendMusicState(int state)
+    {
+        OSCMessage message = new OSCMessage("/unity/musicstate");
+        message.AddValue(OSCValue.Int(state));
+        sender.Send(message);
+    }
 }

@@ -11,7 +11,6 @@ public class VehicleController : MonoBehaviour
     float starttime;
     public float impulse;
     public float turnrate;
-    public CheckpointController target;
     public TextMeshProUGUI timelbl;
     public TextMeshProUGUI laps;
     private Rigidbody _rigidbody;
@@ -27,7 +26,6 @@ public class VehicleController : MonoBehaviour
        amtLaps = 0;
        starttime = Time.time;
        laps.text = "Lap: " + amtLaps;
-       target = GetComponent<CheckpointController>();
     }
 
     // Update is called once per frame

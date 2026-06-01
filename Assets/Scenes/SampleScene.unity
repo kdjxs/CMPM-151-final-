@@ -20039,6 +20039,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 138499167}
     - target: {fileID: 8619044349504227178, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
+      propertyPath: transmitter
+      value: 
+      objectReference: {fileID: 965521799}
+    - target: {fileID: 8619044349504227178, guid: fce3cbb7fd65f824ba0ae082afaee2f3, type: 3}
       propertyPath: RespawnPoint
       value: 
       objectReference: {fileID: 257724253}

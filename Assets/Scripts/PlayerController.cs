@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         starttime = Time.time;
+        Debug.Log("Sending playseq");
+
+        OSCMessage msg = new OSCMessage("/unity/playseq");
+        msg.AddValue(OSCValue.Int(1));
+        transmitter.Send(msg);
+        oscController.SendMusicState(0);
     }
 
     // Update is called once per frame
@@ -270,6 +276,14 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             cm.coinCount++;
             oscController.SendCoinPickup();
+            if (cm.coinCount == 1)
+            {
+                oscController.SendMusicState(1);
+            }
+            else if (cm.coinCount == 2)
+            {
+                oscController.SendMusicState(2);
+            }
         }
     }
 
