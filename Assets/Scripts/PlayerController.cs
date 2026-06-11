@@ -265,6 +265,10 @@ public class PlayerController : MonoBehaviour
     {
         Player.transform.position = RespawnPoint.transform.position;
         GetComponent<Rigidbody>().AddRelativeForce(0, 0, 0);
+        if (oscController != null)
+        {
+            oscController.SendDeath();
+        }
         //starttime = Time.time;
     }
 

@@ -66,4 +66,11 @@ public class OSCController : MonoBehaviour
         message.AddValue(OSCValue.Int(state));
         sender.Send(message);
     }
+
+    public void SendDeath()
+    {
+        var msg = new OSCMessage("/unity/death");
+        msg.AddValue(OSCValue.Float(1f));
+        sender.Send(msg);
+    }
 }
